@@ -6,7 +6,9 @@ export default GithubSerializer.extend({
       id: hash.recordId || hash.url.replace('https://api.github.com/repos/', ''),
       title: hash.title,
       body: hash.body,
-      number: hash.number
+      state: hash.state,
+      number: hash.number,
+      milestone: hash.milestone ? hash.milestone.number : null
     };
     return this._super(type, hash, prop);
   }

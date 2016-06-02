@@ -1,23 +1,35 @@
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
+import { belongsTo, hasMany } from 'ember-data/relationships';
 
-export default DS.Model.extend({
-  fullName: DS.attr('string'),
-  name: DS.attr('string'),
-  htmlUrl: DS.attr('string'),
-  language: DS.attr('string'),
-  description: DS.attr('string'),
-  fork: DS.attr('boolean'),
-  private: DS.attr('boolean'),
-  createdAt: DS.attr('date'),
-  updatedAt: DS.attr('date'),
-  pushedAt: DS.attr('date'),
-  owner: DS.belongsTo('githubUser', {
+export default Model.extend({
+  fullName: attr('string'),
+  name: attr('string'),
+  description: attr('string'),
+  language: attr('string'),
+
+  htmlUrl: attr('string'),
+  issuesUrl: attr('string'),
+  milestonesUrl: attr('string'),
+
+  fork: attr('boolean'),
+  private: attr('boolean'),
+
+  createdAt: attr('date'),
+  updatedAt: attr('date'),
+  pushedAt: attr('date'),
+
+  owner: belongsTo('githubUser', {
     async: true,
     inverse: null
   }),
-  defaultBranch: DS.belongsTo('githubBranch', {
+
+  defaultBranch: belongsTo('githubBranch', {
     async: true,
     inverse: null
   }),
-  branches: DS.hasMany('githubBranch', { async: true })
+
+  branches: hasMany('githubBranch', { async: true }),
+  // milestones: hasMany('githubMilestone', { async: true }),
+  // issues: hasMany('githubIssue', { async: true })
 });

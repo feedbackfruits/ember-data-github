@@ -5,16 +5,23 @@ export default GithubSerializer.extend({
     // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
     let hash = {
       id: resourceHash.recordId || resourceHash.full_name,
+
       fullName: resourceHash.full_name,
       name: resourceHash.name,
       description: resourceHash.description,
-      htmlUrl: resourceHash.html_url,
       language: resourceHash.language,
+
+      htmlUrl: resourceHash.html_url,
+      issuesUrl: resourceHash.issues_url,
+      milestonesUrl: resourceHash.milestones_url,
+
       fork: resourceHash.fork,
       private: resourceHash.private,
+
       createdAt: resourceHash.created_at,
       updatedAt: resourceHash.updated_at,
       pushedAt: resourceHash.pushed_at,
+
       links: {
         owner: resourceHash.owner.url,
         defaultBranch: `${resourceHash.url}/branches/${resourceHash.default_branch}`,
