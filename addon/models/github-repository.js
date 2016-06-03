@@ -29,7 +29,5 @@ export default Model.extend({
     inverse: null
   }),
 
-  branches: hasMany('githubBranch', { async: true }),
-  // milestones: hasMany('githubMilestone', { async: true }),
-  // issues: hasMany('githubIssue', { async: true })
+  branches: hasMany('githubBranch', { async: true })
 });

@@ -1,5 +1,4 @@
 import GithubRepositoryAdapter from './github-repository';
-import GithubAdapter from './github';
 
 export default GithubRepositoryAdapter.extend({
   buildURL(type, id, snapshot, requestType, query) {
@@ -15,8 +14,5 @@ export default GithubRepositoryAdapter.extend({
     }
 
     return builtURL;
-  },
-  // pathForType(type) {
-  //   return '';
-  // }
+  }
 });
